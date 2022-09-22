@@ -45,7 +45,7 @@ Once connection to the Hashicorp Vault is successful, Travis CI will obtain secr
 
 ## Usage
 
-In order to do so, you will need log into Hashicorp Vault instance and once logged in, obtain [Vault access token](https://www.vaultproject.io/docs/concepts/auth#tokens) (please see also *Considerations* section)Use travis-cli to [encrypt the Vault access token](https://docs.travis-ci.com/user/encryption-keys/#usage)
+In order to do so, you will need log into Hashicorp Vault instance and once logged in, obtain [Vault access token](https://www.vaultproject.io/docs/concepts/auth#tokens) (please see also *Considerations* section) Use `travis-cli` to [encrypt the Vault access token](https://docs.travis-ci.com/user/encryption-keys/#usage).
 
 The connection configuration is as easy as:
 
