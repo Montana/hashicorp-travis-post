@@ -12,10 +12,12 @@ tags:
   - infrastructure
   - community
 ---
+![Use your own Hashicorp Vault instance](https://user-images.githubusercontent.com/20936398/191813226-896976fe-a26b-4abf-952e-a86f9904b6b6.png)
 
-<!-- more --> 
 
 Don’t trust Travis CI with all your secrets needed for the pipeline, at least not too much. If you prefer to manage secrets needed for CI/CD processes in a central Key Management System (KMS), e.g. to be able to rotate them quickly rather than providing secure environment variables to the CI/CD tool, you can now easily connect Travis CI with Hashicorp Vault.
+
+<!-- more --> 
 
 ## CI/CD and secrets
 
