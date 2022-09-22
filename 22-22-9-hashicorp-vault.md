@@ -18,9 +18,9 @@ Don’t trust Travis CI with all your secrets needed for your pipeline, at least
 
 <!-- more --> 
 
-## CI/CD and secrets
+## CI/CD and Secrets
 
-In an automated build, test and deployment pipeline often require some secrets - tokens, passwords, certain access credentials - in order to e.g. obtain some artifacts needed for the build and/or push the build artifacts to the target environments. Every CI/CD solution allows build or pipeline creators to manage these secrets with some kind of the solution. In Travis CI it is possible to use environment variables configured via repository settings (stores variable permanently with Travis CI) or to manually [encrypt sensitive data](https://docs.travis-ci.com/user/encryption-keys/) and put an encrypted string into one’s build definition file, `.travis.yml` (uses Travis CI native engine and stored internal keys to decrypt the secret).
+In an automated build, the test and deployment pipeline often require some secrets - tokens, passwords, certain access credentials - in order to e.g. obtain some artifacts needed for the build and/or push the build artifacts to the target environments. Every CI/CD solution allows build or pipeline creators to manage these secrets with some kind of the solution. In Travis CI it is possible to use environment variables configured via repository settings (stores variable permanently with Travis CI) or to manually [encrypt sensitive data](https://docs.travis-ci.com/user/encryption-keys/) and put an encrypted string into one’s build definition file, `.travis.yml` (uses Travis CI native engine and stored internal keys to decrypt the secret).
 
 Still, in many scenarios a centrally managed Key Management System (KMS) like Hashicorp Vault is used to store, update or invalidate both secrets and configurations. An advantage of using such KMS is a much faster reaction in case of a security incident or establishing a single source of truth for e.g. valid access credentials, configuration values without storing them permanently at CI/CD tool.
 
