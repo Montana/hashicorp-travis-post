@@ -13,7 +13,6 @@ tags:
   - community
 ---
 
-
 <!-- more --> 
 
 Don’t trust Travis CI with all your secrets needed for the pipeline, at least not too much. If you prefer to manage secrets needed for CI/CD processes in a central Key Management System (KMS), e.g. to be able to rotate them quickly rather than providing secure environment variables to the CI/CD tool, you can now easily connect Travis CI with Hashicorp Vault.
@@ -30,17 +29,13 @@ Of course, managing one's own secret as a part of ‘limited trust policy’ als
 
 We are pleased to announce that you can now easily use the Hashicorp Vault, one of the popular KMS out there, in connection to Travis CI. Yes, you could have used it already before by providing a certain set of instructions/commands in your build definitions, yet now it’s simpler due to being supported by a convenient `.travis.yml` syntax, which makes it easy to connect to and obtain secrets from the Hashicorp Vault instance.
 
-### How does that work?
+## How does that work?
 
 Travis CI allows to trigger a build, consisting from one to many concurrent build jobs. Groups of jobs may be sequenced in stages (e.g. build, test, deploy). Each build job is actually an instance of the respective environment (Linux, macOS, Windows…) running for the time required to execute instructions put in `.travis.yml` and after that — disbanded.
 
 An important fact here is that Travis CI build jobs may connect to the public network and when doing so, use a certain range of [IP Addresses](https://docs.travis-ci.com/user/ip-addresses/). This allows KMS administrators to create network rules limiting connections to the KMS system to a specific source, which includes Travis CI jobs.
 
-Once that done and after making sure
-Your Hashicorp Vault instance has the KV engine enabled
-Hashicorp Vault instance supports KV2 API
-
-you can configure connection to the Vault within your build definition and use it to obtain the secrets directly from KMS.
+Once that done and after making sure your Hashicorp Vault instance has the KV engine enabled, Hashicorp Vault instance supports the KV2 API so you can configure connection to the Vault within your build definition and use it to obtain the secrets directly from KMS.
 
 You need to edit your `.travis.yml` adding the connection details, encrypted token allowing access to the Vault and a list of secrets to be obtained. Travis CI will execute connections at the very start of a build job, for which secrets were defined. 
 
@@ -48,8 +43,7 @@ You need to edit your `.travis.yml` adding the connection details, encrypted tok
 
 Once connection to the Hashicorp Vault is successful, Travis CI will obtain secrets under paths defined in the `.travis.yml`. If there are no paths to secrets defined in `.travis.yml`, nothing will be acquired. Obtained secrets will be turned into [secure environmental variables](https://docs.travis-ci.com/user/best-practices-security/#steps-travis-ci-takes-to-secure-your-data) with values matching secret value.  From there on you can use these within your build.
 
-
-### Usage
+## Usage
 
 In order to do so, you will need log into Hashicorp Vault instance and once logged in, obtain [Vault access token](https://www.vaultproject.io/docs/concepts/auth#tokens) (please see also *Considerations* section)Use travis-cli to [encrypt the Vault access token](https://docs.travis-ci.com/user/encryption-keys/#usage)
 
