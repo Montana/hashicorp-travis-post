@@ -102,7 +102,7 @@ See more examples in our [documentation](https://docs.travis-ci.com/user/hashico
 
 Whenever generating an access token to a Hashicorp Vault instance, carefully consider access rights of the account for which the Vault token is generated. It may be worth it to create a dedicated CI/CD account in Hashicorp Vault with a minimum required scope of access to the certain secrets.
 
-For the initial release, we consciously made it impossible to define Hashicorp Vault access token via repository settings for environment variables. If the token is not provided explicitly in the form of 
+For the initial release, we consciously made it impossible to define Hashicorp Vault access token via repository settings for environment variables. If the token is not provided explicitly in the form of:
 
 ```yml
 vault:
